@@ -1,16 +1,44 @@
+/**
+ * @fileOverview Implementation of a binary tree data structure
+ * @author Jozef Karabelly (xkarab03)
+ * @module tree
+ */
+
 "use strict";
 
+/**
+ * Representation of a binary tree node. A binary tree consists of one or more
+ * nodes. When constructed, the key of the new node is set to a value while
+ * the left and the right children are set to null.
+ * 
+ * @constructor
+ * @param {object|string|number} value the value to be set as a the key of the 
+ *        node
+ */
 function Node(value) {
     this.value = value;
     this.right = null;
     this.left = null;
 }
 
+/**
+ * Creates a new binary tree instance.
+ * 
+ * @constructor
+ * @param {function} cmp the function used as a comaprator to determine
+ *        the relative ordering for the nodes of the binary tree  
+ */
 export function Tree(cmp) {
     this.cmp = cmp;
     this.root = null;
 }
 
+
+/**
+ * Adds a node to the binary tree containing 'value'
+ * 
+ * @param {object|string|number} value the value to be added to the binary tree
+ */
 Tree.prototype.insertValue = function(value) {
     let newNode = new Node(value);
     this.root && insertNode(this.root, newNode, this.cmp);
