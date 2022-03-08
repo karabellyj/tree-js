@@ -1,27 +1,27 @@
 /**
- * \brief Ukázkovı skript pro první projekt pøedmìtu WAP
+ * \brief UkÃ¡zkovÃ½ skript pro prvnÃ­ projekt pÅ™edmÄ›tu WAP
  */
 
-/// Vyu¾ijeme knihovnu, která je pøedmìtem zadání projektu
+/// VyuÅ¾ijeme knihovnu, kterÃ¡ je pÅ™edmÄ›tem zadÃ¡nÃ­ projektu
 import { Tree } from "./tree.mjs";
 
-/// Testovací data, samozøejmì jde jen o pøíklad a pro finální
-/// hodnocení lze oèekávat vyu¾ití jinıch dat
+/// TestovacÃ­ data, samozÅ™ejmÄ› jde jen o pÅ™Ã­klad a pro finÃ¡lnÃ­
+/// hodnocenÃ­ lze oÄekÃ¡vat vyuÅ¾itÃ­ jinÃ½ch dat
 let input = [5,7,2131345646,9,4,13,12415486];
 
-/// Knihovna musí poskytovat konstruktor Tree()
-/// Tento konstruktor oèekává jedinı parametr - øadící fukci, která
-/// vyhodnocuje, do kterého podstromu pøidat novou hodnotu
+/// Knihovna musÃ­ poskytovat konstruktor Tree()
+/// Tento konstruktor oÄekÃ¡vÃ¡ jedinÃ½ parametr - Å™adÃ­cÃ­ fukci, kterÃ¡
+/// vyhodnocuje, do kterÃ©ho podstromu pÅ™idat novou hodnotu
 let t = new Tree((a,b) => a < b);
-/// Objekty vytvoøené konstruktorem Tree() musí implementovat metodu
-/// insertValue(). Ta oèekává jedinı parametr - novì pøidávanou hodnotu.
+/// Objekty vytvoÅ™enÃ© konstruktorem Tree() musÃ­ implementovat metodu
+/// insertValue(). Ta oÄekÃ¡vÃ¡ jedinÃ½ parametr - novÄ› pÅ™idÃ¡vanou hodnotu.
 input.forEach(i => t.insertValue(i));
 
-/// Ukázka pou¾ití knihovny:
-/// Iterátorù  vrácenıch generátory preorder(), inorder() a postorder() je
-/// mo¾né vytvoøit více, vzájemnì budou na sobì nezávislé. Pøedpokládejte,
-/// ¾e v prùbìhu iterace nebudou vkládány nové prvky.
-console.log("Mix 2 iterátorù")
+/// UkÃ¡zka pouÅ¾itÃ­ knihovny:
+/// IterÃ¡torÅ¯  vrÃ¡cenÃ½ch generÃ¡tory preorder(), inorder() a postorder() je
+/// moÅ¾nÃ© vytvoÅ™it vÃ­ce, vzÃ¡jemnÄ› budou na sobÄ› nezÃ¡vislÃ©. PÅ™edpoklÃ¡dejte,
+/// Å¾e v prÅ¯bÄ›hu iterace nebudou vklÃ¡dÃ¡ny novÃ© prvky.
+console.log("Mix 2 iterÃ¡torÅ¯")
 let pre1 = t.preorder()
 console.log(pre1.next().value);
 console.log(pre1.next().value);
@@ -32,17 +32,17 @@ console.log(pre2.next().value);
 console.log(pre2.next().value);
 console.log(pre1.next().value);
 
-/// Ukázka vyu¾ití iterátoru získaného z generátoru preorder()
+/// UkÃ¡zka vyuÅ¾itÃ­ iterÃ¡toru zÃ­skanÃ©ho z generÃ¡toru preorder()
 console.log("preorder")
 for (let n of t.preorder()) {
 	console.log(n);
 }
-/// Ukázka vyu¾ití iterátoru získaného z generátoru inorder()
+/// UkÃ¡zka vyuÅ¾itÃ­ iterÃ¡toru zÃ­skanÃ©ho z generÃ¡toru inorder()
 console.log("inorder")
 for (let n of t.inorder()) {
 	console.log(n);
 }
-/// Ukázka vyu¾ití iterátoru získaného z generátoru postorder()
+/// UkÃ¡zka vyuÅ¾itÃ­ iterÃ¡toru zÃ­skanÃ©ho z generÃ¡toru postorder()
 console.log("postorder")
 for (let n of t.postorder()) {
 	console.log(n);
