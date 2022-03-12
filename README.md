@@ -1,5 +1,5 @@
 ### Overview
-Simple implementation of Binary tree in Javascript without ES 2015 classes.
+Simple implementation of Binary tree in Javascript without ES 2015 classes. This project was implemented using `Node v14.19.0`.
 
 ### Usage
 #### Tests
