@@ -12,8 +12,11 @@
  * the left and the right children are set to null.
  * 
  * @constructor
- * @param {Object|string|number} value the value to be set as a the key of the 
+ * @param {*} value the value to be set as a the key of the 
  *        node
+ * @property {*} value the value of the node
+ * @property {Node} right the child node on the right
+ * @property {Node} left the child node on the left
  */
 function Node(value) {
     this.value = value;
@@ -27,6 +30,9 @@ function Node(value) {
  * @constructor
  * @param {function} cmp the function used as a comparator to determine
  *        the relative ordering for the nodes of the binary tree  
+ * @property {function} cmp the comparator function which determines
+ *        the relative ordering in the binary tree
+ * @property {Node} root the top-level root node of the binary tree
  */
 export function Tree(cmp) {
     this.cmp = cmp;
@@ -37,7 +43,7 @@ export function Tree(cmp) {
 /**
  * Adds a node to the binary tree containing 'value'
  * 
- * @param {Object|string|number} value the value to be added to the binary tree
+ * @param {*} value the value to be added to the binary tree
  */
 Tree.prototype.insertValue = function(value) {
     let newNode = new Node(value);
@@ -52,7 +58,7 @@ Tree.prototype.insertValue = function(value) {
  * 
  * @generator
  * @param {Node} [node=this.root] the node from which the traversal starts
- * @yields {Object|string|number} the next 'value' in pre-order traversal 
+ * @yields {*} the next 'value' in pre-order traversal 
  */
 Tree.prototype.preorder = function*(node = this.root) {
     yield node.value;
@@ -67,7 +73,7 @@ Tree.prototype.preorder = function*(node = this.root) {
  * 
  * @generator
  * @param {Node} [node=this.root] the node from which the traversal starts
- * @yields {Object|string|number} the next 'value' in in-order traversal
+ * @yields {*} the next 'value' in in-order traversal
  */
 Tree.prototype.inorder = function*(node = this.root) {
     node.left && (yield* this.inorder(node.left));
@@ -81,7 +87,7 @@ Tree.prototype.inorder = function*(node = this.root) {
  * 
  * @generator
  * @param {Node} [node=this.root] the node from which the traversal starts
- * @yields {Object|string|number} the next 'value' in post-order traversal
+ * @yields {*} the next 'value' in post-order traversal
  */
 Tree.prototype.postorder = function*(node = this.root) {
     node.left && (yield* this.postorder(node.left));
