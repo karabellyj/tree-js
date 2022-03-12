@@ -1,1 +1,1 @@
-jsdoc -c jsdoc.json tree.mjs -R README
+jsdoc -c jsdoc.json tree.mjs -R README.md
